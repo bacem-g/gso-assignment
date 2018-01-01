@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>GSO assignment</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+	    <ul>
+	    	<li th:each="parent : ${committees}">
+	    		<span th:text="${parent.name}"></span>
+	    		<div th:replace="::childrenFragment(${parent})"></div>
+	    	</li>
+	    </ul>
+	</body>
+	
+	<!-- childrenFragment -->
+	<div th:fragment="childrenFragment(parent)">
+		<ul th:if="${parent != null and not #lists.isEmpty(parent.children)}">
+			<li th:each="child : ${parent.children}">
+				<span th:text="${child.name}"></span>
+				<div th:replace="::childrenFragment(${child})"></div>
+			</li>
+		</ul>
+	</div>
+
+</html>

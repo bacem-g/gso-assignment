@@ -10,16 +10,16 @@ import com.gso.assignment.domain.Committee;
 import com.gso.assignment.service.CommitteeService;
 
 @RestController
-@RequestMapping("api/committees")
-public class CommitteeController {
+@RequestMapping("/api")
+public class CommitteeResource {
 
 	private CommitteeService committeeService;
 	
-	public CommitteeController(CommitteeService committeeService) {
+	public CommitteeResource(CommitteeService committeeService) {
 		this.committeeService = committeeService;
 	}
 	
-	@GetMapping("/parent")
+	@GetMapping("committees/parent")
 	public List<Committee> getParentCommittees() {
 		return committeeService.getParentCommittees();
 	}

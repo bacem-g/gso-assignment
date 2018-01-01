@@ -1,4 +1,4 @@
-package com.gso.assignment.mapper;
+package com.gso.assignment.repository;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import com.gso.assignment.domain.Committee;
 
 @Mapper
-public interface CommitteeMapper {
+public interface CommitteeRepository {
 
 	@Results({
         @Result(property = "pcode", column = "p_code")
